@@ -1,0 +1,17 @@
+# dependencies
+/client/node_modules
+/client/.env
+/client/package-lock.json
+
+# production
+/client/build
+
+/client/.idea
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
+
+/server/venv/
+/server/.idea
+*.pyc

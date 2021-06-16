@@ -1,0 +1,254 @@
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+body {
+  background: #f0f2f5;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.google-login-button > div, .google-login-button > span {
+  padding: 0 !important;
+}
+
+.google-login-button {
+  padding: 5px !important;
+}
+
+.login-card, .register-card, .reset-password-card, .reset-code-card, .password-reset-card {
+  width: 40vw;
+}
+
+.login-container, .register-container, .reset-password-container, .reset-code-container, .password-reset-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.form-card-title, .regular-card-title {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: #1890ff;
+  font-size: x-large;
+}
+
+.bold-blue {
+  font-weight: bold;
+  color: #1890ff !important;
+}
+
+.ant-layout {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.ant-layout-header {
+  background: white;
+}
+
+.home-container {
+  height: 100%;
+}
+
+.home-container .ant-card {
+  margin: 10px !important;
+  height: 100%;
+}
+
+.regular-card-title {
+  font-weight: lighter;
+  font-size: large;
+}
+
+.active-icon {
+  border-radius: 10px;
+  font-size: 25px;
+  margin: 0 5px 0 5px;
+  padding: 3px;
+}
+
+.active-icon:hover {
+  box-shadow: 0 0 18px #888888;
+}
+
+.active-icon:active {
+  box-shadow: 0 0 18px #1890ff;
+}
+
+.home-container .ant-card-cover {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.center-content, .ant-carousel .slick-list .slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.video-div {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0px;
+}
+
+.video-iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ant-card-cover {
+  max-width: 70% !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.ant-statistic-content {
+  font-size: 18px !important;
+}
+
+.center-calender-button {
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: min-content;
+}
+
+.ant-btn .anticon {
+  vertical-align: 0.1em !important;
+}
+
+.shadow {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset !important;
+}
+
+.center-content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.field-name {
+  font-size: smaller;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.field-value {
+  font-size: large;
+}
+
+.starlink-container .cesium-viewer {
+  height: calc(100vh - 64px);
+}
+
+.cesium-infoBox-title {
+  height: unset;
+}
+
+.home-logo {
+  font-size: 48px;
+  font-weight: lighter;
+  text-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.resources-view .ant-list-pagination {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  background: white;
+  width: 100%;
+  padding: 10px
+}
+
+.ant-list-item:hover {
+  background: #e6f3ff !important;
+}
+
+.ant-list-item a:hover,  .ant-list-item-extra a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.rocket-card > .ant-card-head, .capsule-card > .ant-card-head, .pad-card > .ant-card-head {
+  border-bottom: none;
+}
+
+.rocket-card .ant-card-head-title, .capsule-card .ant-card-head-title, .pad-card .ant-card-head-title {
+  padding-bottom: 0;
+}
+
+.white-background {
+  height: 100%;
+  background: white;
+}
+
+.center-element {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-element-vertically {
+  position: relative;
+  width: 100%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+}
+
+.dashboard-card {
+  margin: 10px;
+  width: auto;
+  height: 100%;
+}
+
+.facebook-login-button {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  font-size: 14px;
+  margin-left: 20px;
+  height: 35px;
+}
+
+.anticon-user {
+  margin-top: 20px !important;
+}
