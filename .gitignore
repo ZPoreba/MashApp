@@ -1,17 +1,22 @@
-# dependencies
+# frontend
 /client/node_modules
 /client/.env
+/client/.docker_env
 /client/package-lock.json
 
-# production
+# frontend production
 /client/build
-
 /client/.idea
-
 /client/npm-debug.log*
 /client/yarn-debug.log*
 /client/yarn-error.log*
 
+# backend
 /server/venv/
 /server/.idea
+/server/.env
+/server/.docker_env
+
+# backend production
 *.pyc
+/server/nohup.out
