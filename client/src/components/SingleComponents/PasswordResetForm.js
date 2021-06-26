@@ -10,6 +10,13 @@ export default class PasswordResetForm extends Component {
         this.form = React.createRef();
     }
 
+    checkPasswordStrength = (rule, password) => {
+        let re = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+        if (re.test(password)) return Promise.resolve();
+        else return Promise.reject("Password has to be at least 8 characters long, contains " +
+            "at least one uppercase character, one number and one special character");
+    }
+
     validateRepeatPassword = (rule, value) => {
         if (this.passwordRef.current.props.value === value) return Promise.resolve();
         else return Promise.reject("Repeated password does not match!");
@@ -61,6 +68,9 @@ export default class PasswordResetForm extends Component {
                                     {
                                         required: true,
                                         message: "Please input your password!"
+                                    },
+                                    {
+                                        validator: this.checkPasswordStrength
                                     }
                                 ]}
                             >

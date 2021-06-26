@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,11 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@n2+h&(q-vuy7_@qq^4nbyex*x4b(_3!7vtq$nb*u4v(8jr(92'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # DJANGO OAUTH TOOLKIT ID and SECRET used in github_social.views
-CLIENT_ID = os.environ.get("CLIENT_ID")
-CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
+CLIENT_ID = str(os.getenv('CLIENT_ID'))
+CLIENT_SECRET = str(os.getenv('CLIENT_SECRET'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -153,6 +155,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:80",
     "http://localhost:3000",
     "http://127.0.0.1:3000"
 ]
@@ -188,12 +191,14 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOW_CREDENTIALS = True
 
 # GOOGLE
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_CLIENT_ID')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('GOOGLE_CLIENT_ID'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('GOOGLE_CLIENT_SECRET'))
 
 # FACEBOOK
-SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('FACEBOOK_CLIENT_ID')        # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('FACEBOOK_CLIENT_SECRET')  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = str(os.getenv('FACEBOOK_CLIENT_ID'))
+SOCIAL_AUTH_FACEBOOK_SECRET = str(os.getenv('FACEBOOK_CLIENT_SECRET'))
+
+DEV_EMAIL_PASSWORD = str(os.getenv('DEV_EMAIL_PASSWORD'))
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {'fields': 'id, name, email, link'}
@@ -217,3 +222,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
     'server.pipeline.update_user_social_data'
 )
+
+MEDIA_URL = '/media/'
+STATIC_URL = '/django_static/'
+STATIC_ROOT = BASE_DIR / 'django_static'

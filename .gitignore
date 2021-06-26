@@ -15,7 +15,6 @@
 /server/venv/
 /server/.idea
 /server/.env
-/server/.docker_env
 
 # backend production
 *.pyc

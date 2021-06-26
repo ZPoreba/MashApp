@@ -17,6 +17,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import random
 import datetime
+from server.settings import DEV_EMAIL_PASSWORD
+
 User = get_user_model()
 
 
@@ -104,7 +106,7 @@ class ResetCode(APIView):
     def send_reset_password(self, email, code):
         context = ssl.create_default_context()
         with smtplib.SMTP_SSL("smtp.gmail.com", context=context) as server:
-            server.login("mash.app.team@gmail.com", os.getenv('DEV_EMAIL_PASSWORD'))
+            server.login("mash.app.team@gmail.com", DEV_EMAIL_PASSWORD)
 
             msg = MIMEMultipart('alternative')
             msg['Subject'] = f'MashApp password reset'
@@ -112,7 +114,7 @@ class ResetCode(APIView):
             msg['To'] = email
 
             text = "Hello MashApp user!\n\nWe heard you forgot your password. Here is reset code for you: {}" \
-                   "\nCode will be valid for next 15 minutes. Do not share it with anyone!\n\nBest Regards,\n" \
+                   "\nDo not share this code with anyone!\n\nBest Regards,\n" \
                    "MashApp Team".format(code)
             html = """\
             <html>
@@ -123,7 +125,7 @@ class ResetCode(APIView):
                     Hello MashApp user!
                     </h3>
                     We heard you forgot your password. Here is reset code for you: <strong>{}</strong><br>
-                    Code will be valid for next 15 minutes. <u>Do not share it with anyone!</u>
+                    <u>Do not share this code with anyone!</u>
                     <br><br>
                     Best Regards,<br>
                     MashApp Team
@@ -167,7 +169,7 @@ class ResetCode(APIView):
                     self.send_reset_password(email, code)
                     return Response(user.username, status=200)
                 else:
-                    return Response('Password reset code has been already generated', status=500)
+                    return Response('Password reset code has been already generated. Try again after 15 minutes', status=500)
             else:
                 code = self.generate_code(user)
                 self.send_reset_password(email, code)
