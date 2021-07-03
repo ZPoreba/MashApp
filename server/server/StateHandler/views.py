@@ -13,10 +13,9 @@ from server.StateHandler.threads import ResultThread
 User = get_user_model()
 
 
-def get_actual_starlink_data():
+def get_actual_starlink_data(satellites):
     ts = load.timescale()
     t = ts.now()
-    satellites = load.tle_file('https://www.celestrak.com/NORAD/elements/starlink.txt')
     results = []
 
     for satellite in satellites:
@@ -30,9 +29,10 @@ def get_actual_starlink_data():
 
 
 def starlink_data_stream(request):
+    satellites = load.tle_file('https://www.celestrak.com/NORAD/elements/starlink.txt')
     def event_stream():
         while True:
-            results = get_actual_starlink_data()
+            results = get_actual_starlink_data(satellites)
             time.sleep(1)
             data = {"positions": results}
             yield 'data: %s\n\n' % str(json.dumps(data))
@@ -54,10 +54,10 @@ class PublicMockView(APIView):
 
 
 class StarlinkView(APIView):
-    starlink_url = 'https://www.celestrak.com/NORAD/elements/starlink.txt'
 
     def get(self, request):
-        results = get_actual_starlink_data()
+        satellites = load.tle_file('https://www.celestrak.com/NORAD/elements/starlink.txt')
+        results = get_actual_starlink_data(satellites)
         return Response({'positions': results}, status=200)
 
 

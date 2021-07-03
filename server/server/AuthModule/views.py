@@ -215,6 +215,8 @@ class EditUserData(APIView):
         first_name = request.data.get('first_name', None)
         last_name = request.data.get('last_name', None)
 
+        if user.is_oauth:
+            return Response('User logged with OAuth. Password reset not available', status=500)
         if first_name is not None:
             user.first_name = first_name
         if last_name is not None:
@@ -230,7 +232,9 @@ class ChangePassword(APIView):
         old_password = request.data.get('old_password', None)
         password = request.data.get('password', None)
 
-        if old_password is None:
+        if user.is_oauth:
+            return Response('User logged with OAuth. Password reset not available', status=500)
+        elif old_password is None:
             return Response('Old password is incorrect', status=500)
         else:
             if user.check_password(old_password):

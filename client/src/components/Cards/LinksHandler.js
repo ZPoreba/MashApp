@@ -6,17 +6,17 @@ import Icon from '@ant-design/icons';
 export default class LinksHandler {
 
     openYoutube = (youtube) => {
-        if (youtube) window.open(youtube, '_blank').focus();
+        if (youtube && youtube.includes('youtube.com')) window.open(youtube, '_blank').focus();
         else message.error('Webcast yet not available');
     }
 
     openReddit = (reddit) => {
-        if (reddit) window.open(reddit, '_blank').focus();
+        if (reddit && reddit.includes('reddit.com')) window.open(reddit, '_blank').focus();
         else message.error('Reddit discussion not available');
     }
 
     openWikipedia = (wikipedia) => {
-        if (wikipedia) window.open(wikipedia, '_blank').focus();
+        if (wikipedia && wikipedia.includes('wikipedia.org')) window.open(wikipedia, '_blank').focus();
         else message.error('Wikipedia is not available');
     }
 
