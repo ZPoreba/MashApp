@@ -39,20 +39,6 @@ def starlink_data_stream(request):
     return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
 
 
-class MockView(APIView):
-
-    def get(self, request):
-        content = {'Mock data!'}
-        return Response(content)
-
-
-class PublicMockView(APIView):
-    permission_classes = (AllowAny,)
-
-    def get(self, request):
-        return Response('Public mock data!')
-
-
 class StarlinkView(APIView):
 
     def get(self, request):

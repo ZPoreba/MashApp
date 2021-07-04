@@ -5,7 +5,6 @@ import Login from "./components/Views/Login";
 import Register from "./components/Views/Register";
 import Launches from "./components/Views/Launches";
 import Profile from "./components/Views/Profile";
-import BoardAdmin from "./components/Views/BoardAdmin";
 import Starlink from "./components/Views/Starlink";
 import Resources from "./components/Views/Resources";
 import Home from "./components/Views/Home";
@@ -34,7 +33,6 @@ class MainSwitch extends Component {
                 <Route exact path="/starlink" component={Starlink} />
                 <Route exact path="/resources" component={Resources}/>
                 <Route exact path="/profile" component={Profile} />
-                <Route path="/admin" component={BoardAdmin} />
                 <Route path="/rocket" component={RocketPage}/>
                 <Route path="/capsule" component={CapsulePage}/>
                 <Route path="/launchpad" component={PadPage}/>

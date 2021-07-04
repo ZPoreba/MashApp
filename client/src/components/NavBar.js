@@ -17,7 +17,6 @@ class NavBar extends Component {
 
     render() {
         const currentUser = this.props.user ? this.props.user: undefined;
-        const showAdminBoard = this.props.user ? this.props.user.user.is_superuser: false;
 
         return (
             <Menu theme="light" mode="horizontal">
@@ -75,15 +74,6 @@ class NavBar extends Component {
                                 </Link>
                             </Menu.Item>
                         </React.Fragment>
-                    )
-                }
-                {
-                    showAdminBoard && (
-                        <Menu.Item key="9">
-                            <Link to={"/admin"}>
-                                Admin Board
-                            </Link>
-                        </Menu.Item>
                     )
                 }
             </Menu>

@@ -5,14 +5,6 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 class UserService {
 
-    getUserBoard() {
-        return axios.get(`${API_URL}api/state/mock/`, { headers: authHeader() });
-    }
-
-    getAdminBoard() {
-        return axios.get(`${API_URL}api/state/mock/`, { headers: authHeader() });
-    }
-
     setSubscribedRocket(id) {
         return axios.post(`${API_URL}api/state/rocket/subscribe/`, { id: id }, { headers: authHeader() });
     }
