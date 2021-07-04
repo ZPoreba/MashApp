@@ -1,6 +1,6 @@
 # MashApp
 
-MashApp is mash-up application that integrate date and components from different sources into one application
+MashApp is mash-up application that integrate data and components from different sources into one application
 
 ## Build and run 
 
