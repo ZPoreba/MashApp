@@ -12,7 +12,7 @@ To build and run application:
 - wait until environment will set up and application will be built 
 - go to http://localhost/ 
 
-## Test OAuth logging 
+## Test OAuth authentication 
 
 To test OAuth with Google there is no need of usage special development account. To test authentication with Facebook there is more restricions so there is a need of ussage special account. 
 
