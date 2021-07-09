@@ -14,9 +14,9 @@ To build and run application:
 
 ## Test OAuth authentication 
 
-To test OAuth with Google there is no need of usage special development account. To test authentication with Facebook there is more restricions so there is a need of ussage special account. 
+To test authentication with Facebook and Google there are some restricions in development mode. To test it use special accounts. 
 
-Account credentails:
+Accounts credentails:
 
 Facebook
 
